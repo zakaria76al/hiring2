@@ -1,0 +1,694 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{EC102F63-060C-49A4-9AF1-EC61B1840B19}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Hiring</RootNamespace>
+    <AssemblyName>Hiring</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44310</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EASendMail, Version=7.7.0.1, Culture=neutral, PublicKeyToken=88adb80ecd66540b, processorArchitecture=MSIL">
+      <HintPath>..\packages\EASendMail.7.7.0.1\lib\net461\EASendMail.dll</HintPath>
+    </Reference>
+    <Reference Include="IronPdf, Version=2020.3.2.0, Culture=neutral, PublicKeyToken=94e1c31412563c75, processorArchitecture=MSIL">
+      <HintPath>..\packages\IronPdf.2020.3.2\lib\net40\IronPdf.dll</HintPath>
+    </Reference>
+    <Reference Include="IronPdf.Assets.Rendering.Windows, Version=18.0.0.0, Culture=neutral, PublicKeyToken=94e1c31412563c75, processorArchitecture=MSIL">
+      <HintPath>..\packages\Iron.Assets.Rendering.Windows.18.0.1\lib\net40\IronPdf.Assets.Rendering.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="admin\assets\css\plugins\animate.min.css" />
+    <Content Include="admin\assets\css\plugins\bootstrap.min.css" />
+    <Content Include="admin\assets\css\plugins\perfect-scrollbar.css" />
+    <Content Include="admin\assets\css\plugins\prism-coy.css" />
+    <Content Include="admin\assets\css\style.css" />
+    <Content Include="admin\assets\fonts\fa-brands-400.svg" />
+    <Content Include="admin\assets\fonts\fa-regular-400.svg" />
+    <Content Include="admin\assets\fonts\fa-solid-900.svg" />
+    <Content Include="admin\assets\fonts\feather.svg" />
+    <Content Include="admin\assets\fonts\Flaticon.svg" />
+    <Content Include="admin\assets\fonts\pct.svg" />
+    <Content Include="admin\assets\images\auth\auth-logo-dark.png" />
+    <Content Include="admin\assets\images\auth\auth-logo.png" />
+    <Content Include="admin\assets\images\browser\chrome.png" />
+    <Content Include="admin\assets\images\browser\firefox.png" />
+    <Content Include="admin\assets\images\browser\ie.png" />
+    <Content Include="admin\assets\images\browser\opera.png" />
+    <Content Include="admin\assets\images\browser\safari.png" />
+    <Content Include="admin\assets\images\cd-arrow.svg" />
+    <Content Include="admin\assets\images\close.png" />
+    <Content Include="admin\assets\images\complete.png" />
+    <Content Include="admin\assets\images\favicon.ico" />
+    <Content Include="admin\assets\images\gallery-grid\img-grd-gal-1.jpg" />
+    <Content Include="admin\assets\images\gallery-grid\img-grd-gal-2.jpg" />
+    <Content Include="admin\assets\images\gallery-grid\img-grd-gal-3.jpg" />
+    <Content Include="admin\assets\images\gallery-grid\img-grd-gal-4.jpg" />
+    <Content Include="admin\assets\images\gallery-grid\img-grd-gal-5.jpg" />
+    <Content Include="admin\assets\images\gallery-grid\img-grd-gal-6.jpg" />
+    <Content Include="admin\assets\images\gallery-grid\masonry-1.jpg" />
+    <Content Include="admin\assets\images\gallery-grid\masonry-2.jpg" />
+    <Content Include="admin\assets\images\gallery-grid\masonry-3.jpg" />
+    <Content Include="admin\assets\images\gallery-grid\masonry-4.jpg" />
+    <Content Include="admin\assets\images\gallery-grid\masonry-5.jpg" />
+    <Content Include="admin\assets\images\gallery-grid\masonry-6.jpg" />
+    <Content Include="admin\assets\images\gallery-grid\masonry-7.jpg" />
+    <Content Include="admin\assets\images\gallery-grid\masonry-8.jpg" />
+    <Content Include="admin\assets\images\loading.gif" />
+    <Content Include="admin\assets\images\logo-dark.png" />
+    <Content Include="admin\assets\images\logo-docs.png" />
+    <Content Include="admin\assets\images\logo-icon.png" />
+    <Content Include="admin\assets\images\logo-old.png" />
+    <Content Include="admin\assets\images\logo-thumb.png" />
+    <Content Include="admin\assets\images\logo.png" />
+    <Content Include="admin\assets\images\next.png" />
+    <Content Include="admin\assets\images\prev.png" />
+    <Content Include="admin\assets\images\slider\img-slide-1.jpg" />
+    <Content Include="admin\assets\images\slider\img-slide-2.jpg" />
+    <Content Include="admin\assets\images\slider\img-slide-3.jpg" />
+    <Content Include="admin\assets\images\slider\img-slide-4.jpg" />
+    <Content Include="admin\assets\images\slider\img-slide-5.jpg" />
+    <Content Include="admin\assets\images\slider\img-slide-6.jpg" />
+    <Content Include="admin\assets\images\slider\img-slide-7.jpg" />
+    <Content Include="admin\assets\images\user\avatar-1.jpg" />
+    <Content Include="admin\assets\images\user\avatar-2.jpg" />
+    <Content Include="admin\assets\images\user\avatar-3.jpg" />
+    <Content Include="admin\assets\images\user\avatar-4.jpg" />
+    <Content Include="admin\assets\images\user\avatar-5.jpg" />
+    <Content Include="admin\assets\images\user\cover.jpg" />
+    <Content Include="admin\assets\images\user\img-avatar-1.jpg" />
+    <Content Include="admin\assets\images\user\img-avatar-2.jpg" />
+    <Content Include="admin\assets\images\user\img-avatar-3.jpg" />
+    <Content Include="admin\assets\images\widget\AUSTRALIA.jpg" />
+    <Content Include="admin\assets\images\widget\BRAZIL.jpg" />
+    <Content Include="admin\assets\images\widget\dashborad-1.jpg" />
+    <Content Include="admin\assets\images\widget\dashborad-2.jpg" />
+    <Content Include="admin\assets\images\widget\dashborad-3.jpg" />
+    <Content Include="admin\assets\images\widget\dashborad-4.jpg" />
+    <Content Include="admin\assets\images\widget\dashborad-5.jpg" />
+    <Content Include="admin\assets\images\widget\emoticon.jpg" />
+    <Content Include="admin\assets\images\widget\GERMANY.jpg" />
+    <Content Include="admin\assets\images\widget\img-round1.jpg" />
+    <Content Include="admin\assets\images\widget\p1.jpg" />
+    <Content Include="admin\assets\images\widget\p2.jpg" />
+    <Content Include="admin\assets\images\widget\p3.jpg" />
+    <Content Include="admin\assets\images\widget\p4.jpg" />
+    <Content Include="admin\assets\images\widget\PHONE1.jpg" />
+    <Content Include="admin\assets\images\widget\PHONE2.jpg" />
+    <Content Include="admin\assets\images\widget\PHONE3.jpg" />
+    <Content Include="admin\assets\images\widget\PHONE4.jpg" />
+    <Content Include="admin\assets\images\widget\profile-person1.jpg" />
+    <Content Include="admin\assets\images\widget\slider5.jpg" />
+    <Content Include="admin\assets\images\widget\slider6.jpg" />
+    <Content Include="admin\assets\images\widget\slider7.jpg" />
+    <Content Include="admin\assets\images\widget\UK.jpg" />
+    <Content Include="admin\assets\images\widget\USA.jpg" />
+    <Content Include="admin\assets\images\widget\user-blur-bg.png" />
+    <Content Include="admin\assets\js\analytics.js" />
+    <Content Include="admin\assets\js\analytics.min.js" />
+    <Content Include="admin\assets\js\horizontal-menu.js" />
+    <Content Include="admin\assets\js\menu-setting.js" />
+    <Content Include="admin\assets\js\menu-setting.min.js" />
+    <Content Include="admin\assets\js\pages\ac-alert.js" />
+    <Content Include="admin\assets\js\pages\ac-datepicker.js" />
+    <Content Include="admin\assets\js\pages\ac-lightbox.js" />
+    <Content Include="admin\assets\js\pages\ac-notification.js" />
+    <Content Include="admin\assets\js\pages\ac-rangeslider.js" />
+    <Content Include="admin\assets\js\pages\ac-rating.js" />
+    <Content Include="admin\assets\js\pages\chart-apex.js" />
+    <Content Include="admin\assets\js\pages\chart-chart-custom.js" />
+    <Content Include="admin\assets\js\pages\chart-highchart-custom.js" />
+    <Content Include="admin\assets\js\pages\chart-morris-custom.js" />
+    <Content Include="admin\assets\js\pages\chart-peity-custom.js" />
+    <Content Include="admin\assets\js\pages\chart.js" />
+    <Content Include="admin\assets\js\pages\dashboard-analytics.js" />
+    <Content Include="admin\assets\js\pages\dashboard-crm.js" />
+    <Content Include="admin\assets\js\pages\dashboard-help.js" />
+    <Content Include="admin\assets\js\pages\dashboard-main.js" />
+    <Content Include="admin\assets\js\pages\dashboard-project.js" />
+    <Content Include="admin\assets\js\pages\dashboard-sale.js" />
+    <Content Include="admin\assets\js\pages\data-advance-custom.js" />
+    <Content Include="admin\assets\js\pages\data-api-custom.js" />
+    <Content Include="admin\assets\js\pages\data-autofill-custom.js" />
+    <Content Include="admin\assets\js\pages\data-basic-custom.js" />
+    <Content Include="admin\assets\js\pages\data-buttons-custom.js" />
+    <Content Include="admin\assets\js\pages\data-column-custom.js" />
+    <Content Include="admin\assets\js\pages\data-export-custom.js" />
+    <Content Include="admin\assets\js\pages\data-header-custom.js" />
+    <Content Include="admin\assets\js\pages\data-key-custom.js" />
+    <Content Include="admin\assets\js\pages\data-plugin-custom.js" />
+    <Content Include="admin\assets\js\pages\data-reorder-custom.js" />
+    <Content Include="admin\assets\js\pages\data-responsive-custom.js" />
+    <Content Include="admin\assets\js\pages\data-row-custom.js" />
+    <Content Include="admin\assets\js\pages\data-scroller-custom.js" />
+    <Content Include="admin\assets\js\pages\data-select-custom.js" />
+    <Content Include="admin\assets\js\pages\data-source-custom.js" />
+    <Content Include="admin\assets\js\pages\data-styling-custom.js" />
+    <Content Include="admin\assets\js\pages\data-table-custom.js" />
+    <Content Include="admin\assets\js\pages\editable-custom.js" />
+    <Content Include="admin\assets\js\pages\form-advance-custom.js" />
+    <Content Include="admin\assets\js\pages\form-masking-custom.js" />
+    <Content Include="admin\assets\js\pages\form-picker-custom.js" />
+    <Content Include="admin\assets\js\pages\form-select-custom.js" />
+    <Content Include="admin\assets\js\pages\form-validation.js" />
+    <Content Include="admin\assets\js\pages\google-maps.js" />
+    <Content Include="admin\assets\js\pages\invoice-list.js" />
+    <Content Include="admin\assets\js\pages\jquery.knob-custom.min.js" />
+    <Content Include="admin\assets\js\pages\jquery.wavify.js" />
+    <Content Include="admin\assets\js\pages\map-api.js" />
+    <Content Include="admin\assets\js\pages\notify-event.js" />
+    <Content Include="admin\assets\js\pages\page-croper.js" />
+    <Content Include="admin\assets\js\pages\task-board.js" />
+    <Content Include="admin\assets\js\pages\todo.js" />
+    <Content Include="admin\assets\js\pages\TweenMax.min.js" />
+    <Content Include="admin\assets\js\pages\widget-data.js" />
+    <Content Include="admin\assets\js\pcoded.js" />
+    <Content Include="admin\assets\js\pcoded.min.js" />
+    <Content Include="admin\assets\js\plugins\apexcharts.min.js" />
+    <Content Include="admin\assets\js\plugins\bootstrap.min.js" />
+    <Content Include="admin\assets\js\plugins\gmaps.min.js" />
+    <Content Include="admin\assets\js\plugins\jquery-ui.min.js" />
+    <Content Include="admin\assets\js\plugins\perfect-scrollbar.min.js" />
+    <Content Include="admin\assets\js\plugins\prism.js" />
+    <Content Include="admin\assets\js\ripple.js" />
+    <Content Include="admin\assets\js\uikit.js" />
+    <Content Include="admin\assets\js\uikit.min.js" />
+    <Content Include="admin\assets\js\vendor-all.js" />
+    <Content Include="admin\assets\js\vendor-all.min.js" />
+    <Content Include="admin\assets\js\waves.min.js" />
+    <Content Include="admin\candidature.aspx" />
+    <Content Include="admin\charts.aspx" />
+    <Content Include="admin\deletePers.aspx" />
+    <Content Include="admin\index.aspx" />
+    <Content Include="admin\login.aspx" />
+    <Content Include="admin\logout.aspx" />
+    <Content Include="admin\newoffre.aspx" />
+    <Content Include="admin\newpersonnel.aspx" />
+    <Content Include="admin\offre.aspx" />
+    <Content Include="admin\personnel.aspx" />
+    <Content Include="admin\print.aspx" />
+    <Content Include="admin\sendmail.aspx" />
+    <Content Include="admin\settings.aspx" />
+    <Content Include="admin\updateoffre.aspx" />
+    <Content Include="hiring.aspx" />
+    <Content Include="hiringtraitement.aspx" />
+    <Content Include="index.aspx" />
+    <Content Include="offres.aspx" />
+    <Content Include="static\css\animate.css" />
+    <Content Include="static\css\bootstrap.min.css" />
+    <Content Include="static\css\flaticon.css" />
+    <Content Include="static\css\font-awesome.min.css" />
+    <Content Include="static\css\gijgo.css" />
+    <Content Include="static\css\hirringform.css" />
+    <Content Include="static\css\magnific-popup.css" />
+    <Content Include="static\css\nice-select.css" />
+    <Content Include="static\css\owl.carousel.min.css" />
+    <Content Include="static\css\slick.css" />
+    <Content Include="static\css\slicknav.css" />
+    <Content Include="static\css\style.css" />
+    <Content Include="static\css\theme-default.css" />
+    <Content Include="static\css\themify-icons.css" />
+    <Content Include="static\fonts\fa-brands-400.svg" />
+    <Content Include="static\fonts\fa-regular-400.svg" />
+    <Content Include="static\fonts\fa-solid-900.svg" />
+    <Content Include="static\fonts\flaticon.css" />
+    <Content Include="static\fonts\Flaticon.svg" />
+    <Content Include="static\fonts\fontawesome-webfont.svg" />
+    <Content Include="static\fonts\gijgo-material.svg" />
+    <Content Include="static\fonts\themify.svg" />
+    <Content Include="static\img\about\counter.png" />
+    <Content Include="static\img\banner\accordion.png" />
+    <Content Include="static\img\banner\banner.png" />
+    <Content Include="static\img\banner\banner_2.png" />
+    <Content Include="static\img\banner\bradcam.png" />
+    <Content Include="static\img\banner\contact_thumb.png" />
+    <Content Include="static\img\banner\info_banner.png" />
+    <Content Include="static\img\banner\testmonial.png" />
+    <Content Include="static\img\blog\author.png" />
+    <Content Include="static\img\blog\blog_1.png" />
+    <Content Include="static\img\blog\blog_2.png" />
+    <Content Include="static\img\blog\blog_3.png" />
+    <Content Include="static\img\blog\blog_4.png" />
+    <Content Include="static\img\blog\learn_about_bg.png" />
+    <Content Include="static\img\blog\single_blog_1.png" />
+    <Content Include="static\img\blog\single_blog_2.png" />
+    <Content Include="static\img\blog\single_blog_3.png" />
+    <Content Include="static\img\blog\single_blog_4.png" />
+    <Content Include="static\img\blog\single_blog_5.png" />
+    <Content Include="static\img\blog\slide_thumb_1.png" />
+    <Content Include="static\img\case\1.png" />
+    <Content Include="static\img\case\2.png" />
+    <Content Include="static\img\case\3.png" />
+    <Content Include="static\img\case\4.png" />
+    <Content Include="static\img\case\5.png" />
+    <Content Include="static\img\case\6.png" />
+    <Content Include="static\img\case\7.png" />
+    <Content Include="static\img\case\8.png" />
+    <Content Include="static\img\case\9.png" />
+    <Content Include="static\img\case\img.png" />
+    <Content Include="static\img\case\testmonial.png" />
+    <Content Include="static\img\comment\comment_1.png" />
+    <Content Include="static\img\comment\comment_2.png" />
+    <Content Include="static\img\comment\comment_3.png" />
+    <Content Include="static\img\elements\a.jpg" />
+    <Content Include="static\img\elements\a2.jpg" />
+    <Content Include="static\img\elements\d.jpg" />
+    <Content Include="static\img\elements\disabled-check.png" />
+    <Content Include="static\img\elements\disabled-radio.png" />
+    <Content Include="static\img\elements\f1.jpg" />
+    <Content Include="static\img\elements\f2.jpg" />
+    <Content Include="static\img\elements\f3.jpg" />
+    <Content Include="static\img\elements\f4.jpg" />
+    <Content Include="static\img\elements\f5.jpg" />
+    <Content Include="static\img\elements\f6.jpg" />
+    <Content Include="static\img\elements\f7.jpg" />
+    <Content Include="static\img\elements\f8.jpg" />
+    <Content Include="static\img\elements\g1.jpg" />
+    <Content Include="static\img\elements\g2.jpg" />
+    <Content Include="static\img\elements\g3.jpg" />
+    <Content Include="static\img\elements\g4.jpg" />
+    <Content Include="static\img\elements\g5.jpg" />
+    <Content Include="static\img\elements\g6.jpg" />
+    <Content Include="static\img\elements\g7.jpg" />
+    <Content Include="static\img\elements\g8.jpg" />
+    <Content Include="static\img\elements\primary-check.png" />
+    <Content Include="static\img\elements\primary-radio.png" />
+    <Content Include="static\img\elements\success-check.png" />
+    <Content Include="static\img\elements\success-radio.png" />
+    <Content Include="static\img\favicon.ico" />
+    <Content Include="static\img\favicon.png" />
+    <Content Include="static\img\footer_logo.png" />
+    <Content Include="static\img\logo.png" />
+    <Content Include="static\img\post\next.png" />
+    <Content Include="static\img\post\post_1.png" />
+    <Content Include="static\img\post\post_10.png" />
+    <Content Include="static\img\post\post_2.png" />
+    <Content Include="static\img\post\post_3.png" />
+    <Content Include="static\img\post\post_4.png" />
+    <Content Include="static\img\post\post_5.png" />
+    <Content Include="static\img\post\post_6.png" />
+    <Content Include="static\img\post\post_7.png" />
+    <Content Include="static\img\post\post_8.png" />
+    <Content Include="static\img\post\post_9.png" />
+    <Content Include="static\img\post\preview.png" />
+    <Content Include="static\img\service\about.png" />
+    <Content Include="static\img\svg_icon\1.svg" />
+    <Content Include="static\img\svg_icon\2.svg" />
+    <Content Include="static\img\svg_icon\3.svg" />
+    <Content Include="static\img\svg_icon\4.svg" />
+    <Content Include="static\img\svg_icon\5.svg" />
+    <Content Include="static\img\svg_icon\6.svg" />
+    <Content Include="static\img\svg_icon\cart.svg" />
+    <Content Include="static\img\svg_icon\group.svg" />
+    <Content Include="static\img\svg_icon\heart.svg" />
+    <Content Include="static\img\svg_icon\joe-gardner-fn_BT9fwg_E-unsplash.png" />
+    <Content Include="static\img\svg_icon\quote.svg" />
+    <Content Include="static\img\svg_icon\respect.svg" />
+    <Content Include="static\img\team\1.png" />
+    <Content Include="static\img\team\2.png" />
+    <Content Include="static\img\team\3.png" />
+    <Content Include="static\js\addFormation.js" />
+    <Content Include="static\js\ajax-form.js" />
+    <Content Include="static\js\bootstrap.min.js" />
+    <Content Include="static\js\contact.js" />
+    <Content Include="static\js\gijgo.min.js" />
+    <Content Include="static\js\hiringform.js" />
+    <Content Include="static\js\imagesloaded.pkgd.min.js" />
+    <Content Include="static\js\isotope.pkgd.min.js" />
+    <Content Include="static\js\jquery.ajaxchimp.min.js" />
+    <Content Include="static\js\jquery.counterup.min.js" />
+    <Content Include="static\js\jquery.form.js" />
+    <Content Include="static\js\jquery.magnific-popup.min.js" />
+    <Content Include="static\js\jquery.scrollUp.min.js" />
+    <Content Include="static\js\jquery.slicknav.min.js" />
+    <Content Include="static\js\jquery.validate.min.js" />
+    <Content Include="static\js\mail-script.js" />
+    <Content Include="static\js\main.js" />
+    <Content Include="static\js\nice-select.min.js" />
+    <Content Include="static\js\owl.carousel.min.js" />
+    <Content Include="static\js\plugins.js" />
+    <Content Include="static\js\popper.min.js" />
+    <Content Include="static\js\scrollIt.js" />
+    <Content Include="static\js\slick.min.js" />
+    <Content Include="static\js\vendor\jquery-1.12.4.min.js" />
+    <Content Include="static\js\vendor\modernizr-3.5.0.min.js" />
+    <Content Include="static\js\waypoints.min.js" />
+    <Content Include="static\js\wow.min.js" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="admin\admin.Master.cs">
+      <DependentUpon>admin.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\admin.Master.designer.cs">
+      <DependentUpon>admin.Master</DependentUpon>
+    </Compile>
+    <Compile Include="admin\candidature.aspx.cs">
+      <DependentUpon>candidature.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\candidature.aspx.designer.cs">
+      <DependentUpon>candidature.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\charts.aspx.cs">
+      <DependentUpon>charts.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\charts.aspx.designer.cs">
+      <DependentUpon>charts.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\deletePers.aspx.cs">
+      <DependentUpon>deletePers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\deletePers.aspx.designer.cs">
+      <DependentUpon>deletePers.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\login.aspx.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\login.aspx.designer.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\logout.aspx.cs">
+      <DependentUpon>logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\logout.aspx.designer.cs">
+      <DependentUpon>logout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\newoffre.aspx.cs">
+      <DependentUpon>newoffre.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\newoffre.aspx.designer.cs">
+      <DependentUpon>newoffre.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\newpersonnel.aspx.cs">
+      <DependentUpon>newpersonnel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\newpersonnel.aspx.designer.cs">
+      <DependentUpon>newpersonnel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\offre.aspx.cs">
+      <DependentUpon>offre.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\offre.aspx.designer.cs">
+      <DependentUpon>offre.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\personnel.aspx.cs">
+      <DependentUpon>personnel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\personnel.aspx.designer.cs">
+      <DependentUpon>personnel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\print.aspx.cs">
+      <DependentUpon>print.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\print.aspx.designer.cs">
+      <DependentUpon>print.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\schedule.cs" />
+    <Compile Include="admin\sendmail.aspx.cs">
+      <DependentUpon>sendmail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\sendmail.aspx.designer.cs">
+      <DependentUpon>sendmail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\settings.aspx.cs">
+      <DependentUpon>settings.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\settings.aspx.designer.cs">
+      <DependentUpon>settings.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\updateoffre.aspx.cs">
+      <DependentUpon>updateoffre.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\updateoffre.aspx.designer.cs">
+      <DependentUpon>updateoffre.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="hiring.aspx.cs">
+      <DependentUpon>hiring.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="hiring.aspx.designer.cs">
+      <DependentUpon>hiring.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="hiringtraitement.aspx.cs">
+      <DependentUpon>hiringtraitement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="hiringtraitement.aspx.designer.cs">
+      <DependentUpon>hiringtraitement.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="offres.aspx.cs">
+      <DependentUpon>offres.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="offres.aspx.designer.cs">
+      <DependentUpon>offres.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="masterPage.Master.cs">
+      <DependentUpon>masterPage.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="masterPage.Master.designer.cs">
+      <DependentUpon>masterPage.Master</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="admin\admin.Master" />
+    <Content Include="admin\assets\fonts\fa-brands-400.eot" />
+    <Content Include="admin\assets\fonts\fa-brands-400.ttf" />
+    <Content Include="admin\assets\fonts\fa-brands-400.woff" />
+    <Content Include="admin\assets\fonts\fa-brands-400.woff2" />
+    <Content Include="admin\assets\fonts\fa-regular-400.eot" />
+    <Content Include="admin\assets\fonts\fa-regular-400.ttf" />
+    <Content Include="admin\assets\fonts\fa-regular-400.woff" />
+    <Content Include="admin\assets\fonts\fa-regular-400.woff2" />
+    <Content Include="admin\assets\fonts\fa-solid-900.eot" />
+    <Content Include="admin\assets\fonts\fa-solid-900.ttf" />
+    <Content Include="admin\assets\fonts\fa-solid-900.woff" />
+    <Content Include="admin\assets\fonts\fa-solid-900.woff2" />
+    <Content Include="admin\assets\fonts\feather.eot" />
+    <Content Include="admin\assets\fonts\feather.ttf" />
+    <Content Include="admin\assets\fonts\feather.woff" />
+    <Content Include="admin\assets\fonts\Flaticon.eot" />
+    <Content Include="admin\assets\fonts\Flaticon.ttf" />
+    <Content Include="admin\assets\fonts\Flaticon.woff" />
+    <Content Include="admin\assets\fonts\Flaticon.woff2" />
+    <Content Include="admin\assets\fonts\opensans\mem5YaGs126MiZpBA-UNirkOUehpOqc.woff2" />
+    <Content Include="admin\assets\fonts\opensans\mem5YaGs126MiZpBA-UNirkOVuhpOqc.woff2" />
+    <Content Include="admin\assets\fonts\opensans\mem5YaGs126MiZpBA-UNirkOX-hpOqc.woff2" />
+    <Content Include="admin\assets\fonts\opensans\mem5YaGs126MiZpBA-UNirkOXehpOqc.woff2" />
+    <Content Include="admin\assets\fonts\opensans\mem5YaGs126MiZpBA-UNirkOXOhpOqc.woff2" />
+    <Content Include="admin\assets\fonts\opensans\mem5YaGs126MiZpBA-UNirkOXuhpOqc.woff2" />
+    <Content Include="admin\assets\fonts\opensans\mem8YaGs126MiZpBA-UFUZ0bbck.woff2" />
+    <Content Include="admin\assets\fonts\opensans\mem8YaGs126MiZpBA-UFVp0bbck.woff2" />
+    <Content Include="admin\assets\fonts\opensans\mem8YaGs126MiZpBA-UFVZ0b.woff2" />
+    <Content Include="admin\assets\fonts\opensans\mem8YaGs126MiZpBA-UFW50bbck.woff2" />
+    <Content Include="admin\assets\fonts\opensans\mem8YaGs126MiZpBA-UFWJ0bbck.woff2" />
+    <Content Include="admin\assets\fonts\opensans\mem8YaGs126MiZpBA-UFWp0bbck.woff2" />
+    <Content Include="admin\assets\fonts\opensans\mem8YaGs126MiZpBA-UFWZ0bbck.woff2" />
+    <Content Include="admin\assets\fonts\pct.eot" />
+    <Content Include="admin\assets\fonts\pct.ttf" />
+    <Content Include="admin\assets\fonts\pct.woff" />
+    <None Include="packages.config" />
+    <Content Include="static\css\style.map" />
+    <Content Include="static\css\theme-default.map" />
+    <Content Include="static\fonts\fa-brands-400.eot" />
+    <Content Include="static\fonts\fa-brands-400.ttf" />
+    <Content Include="static\fonts\fa-brands-400.woff" />
+    <Content Include="static\fonts\fa-brands-400.woff2" />
+    <Content Include="static\fonts\fa-regular-400.eot" />
+    <Content Include="static\fonts\fa-regular-400.ttf" />
+    <Content Include="static\fonts\fa-regular-400.woff" />
+    <Content Include="static\fonts\fa-regular-400.woff2" />
+    <Content Include="static\fonts\fa-solid-900.eot" />
+    <Content Include="static\fonts\fa-solid-900.ttf" />
+    <Content Include="static\fonts\fa-solid-900.woff" />
+    <Content Include="static\fonts\fa-solid-900.woff2" />
+    <Content Include="static\fonts\Flaticon.eot" />
+    <Content Include="static\fonts\Flaticon.ttf" />
+    <Content Include="static\fonts\Flaticon.woff" />
+    <Content Include="static\fonts\Flaticon.woff2" />
+    <Content Include="static\fonts\fontawesome-webfont.eot" />
+    <Content Include="static\fonts\fontawesome-webfont.ttf" />
+    <Content Include="static\fonts\fontawesome-webfont.woff" />
+    <Content Include="static\fonts\fontawesome-webfont.woff2" />
+    <Content Include="static\fonts\FontAwesome.otf" />
+    <Content Include="static\fonts\gijgo-material.eot" />
+    <Content Include="static\fonts\gijgo-material.ttf" />
+    <Content Include="static\fonts\gijgo-material.woff" />
+    <Content Include="static\fonts\themify.eot" />
+    <Content Include="static\fonts\themify.ttf" />
+    <Content Include="static\fonts\themify.woff" />
+    <Content Include="static\scss\style.scss" />
+    <Content Include="static\scss\theme-default.scss" />
+    <Content Include="static\scss\_about.scss" />
+    <Content Include="static\scss\_accordion.scss" />
+    <Content Include="static\scss\_accordion_area.scss" />
+    <Content Include="static\scss\_blog.scss" />
+    <Content Include="static\scss\_blog_part.scss" />
+    <Content Include="static\scss\_bradcam.scss" />
+    <Content Include="static\scss\_btn.scss" />
+    <Content Include="static\scss\_case_details.scss" />
+    <Content Include="static\scss\_contact.scss" />
+    <Content Include="static\scss\_contact_quote.scss" />
+    <Content Include="static\scss\_counter.scss" />
+    <Content Include="static\scss\_department.scss" />
+    <Content Include="static\scss\_elements.scss" />
+    <Content Include="static\scss\_emergency_contact.scss" />
+    <Content Include="static\scss\_experts.scss" />
+    <Content Include="static\scss\_extend.scss" />
+    <Content Include="static\scss\_footer.scss" />
+    <Content Include="static\scss\_gallery.scss" />
+    <Content Include="static\scss\_header.scss" />
+    <Content Include="static\scss\_mixins.scss" />
+    <Content Include="static\scss\_offers.scss" />
+    <Content Include="static\scss\_responsive.scss" />
+    <Content Include="static\scss\_section_title.scss" />
+    <Content Include="static\scss\_service.scss" />
+    <Content Include="static\scss\_slick-nav.scss" />
+    <Content Include="static\scss\_slider.scss" />
+    <Content Include="static\scss\_team.scss" />
+    <Content Include="static\scss\_tesmonial.scss" />
+    <Content Include="static\scss\_testmonial.scss" />
+    <Content Include="static\scss\_varriable.scss" />
+    <Content Include="masterPage.Master" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="documents\" />
+    <Folder Include="imagesOffres\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>61396</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44310/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Ce projet fait référence à des packages NuGet qui sont manquants sur cet ordinateur. Utilisez l'option de restauration des packages NuGet pour les télécharger. Pour plus d'informations, consultez http://go.microsoft.com/fwlink/?LinkID=322105. Le fichier manquant est : {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
